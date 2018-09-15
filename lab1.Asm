@@ -30,8 +30,20 @@ main proc
 	exit:
 		invoke wsprintf,addr res1,addr sform, addr first_message, addr second_message
 		invoke lstrlen, addr res1
-		mov len, eax
-		invoke MessageBox,NULL,addr res1,addr hello_title,MB_OK
+		lea esi, res1
+		lea edi, res2
+		
+		mov ecx,eax
+		l1:
+			mov al, [esi]
+			mov ah, [edi]
+			mov [edi], al
+			inc edi
+			mov [edi], al
+			inc esi
+			inc edi
+		loop l1
+		invoke MessageBox,NULL,addr res2,addr hello_title,MB_OK
 	ret
 	
 	
