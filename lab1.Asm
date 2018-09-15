@@ -32,7 +32,6 @@ main proc
 		invoke lstrlen, addr res1
 		lea esi, res1
 		lea edi, res2
-		
 		mov ecx,eax
 		l1:
 			mov al, [esi]
@@ -43,6 +42,7 @@ main proc
 			inc esi
 			inc edi
 		loop l1
+		invoke MessageBox,NULL,addr res1,addr hello_title,MB_OK
 		invoke MessageBox,NULL,addr res2,addr hello_title,MB_OK
 	ret
 	
