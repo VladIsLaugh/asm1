@@ -23,12 +23,13 @@ main proc
 		
 		invoke GetComputerName,addr first_message,addr buflen
 		invoke GetCurrentDirectory,255,addr second_message
+		invoke wsprintf,addr res1,addr sform1, addr first_message, addr second_message
 		jmp exit
 	NoCD:
 		invoke GetUserName,addr first_message,addr buflen
 	    invoke GetWindowsDirectory,addr second_message,255
+	    invoke wsprintf,addr res1,addr sform2, addr first_message, addr second_message
 	exit:
-		invoke wsprintf,addr res1,addr sform, addr first_message, addr second_message
 		invoke lstrlen, addr res1
 		lea esi, res1
 		lea edi, res2

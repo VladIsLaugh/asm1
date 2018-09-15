@@ -17,6 +17,9 @@ second_message 	db 		256 dup(0)
 len				db		25
 res1			db 		500 dup(0)
 res2			db		1000 dup(0)
-sform			db		'Computer name: %s', 13, 10
+sform1			db		'Computer name: %s', 13, 10
 				db 		'Current directory: %s', 0
+				
+sform2			db		'User name: %s', 13, 10
+				db 		'Windows directory: %s', 0
 
